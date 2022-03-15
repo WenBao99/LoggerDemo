@@ -22,16 +22,12 @@ public class WrapperTest {
     @Autowired
     UserMapper userMapper;
 
+
+
+
     @Test
     public void test1() {
-        //查询name、email不为空、年龄大于20的用户
-        QueryWrapper<User> wrapper = new QueryWrapper<>();
-        wrapper
-                .isNotNull("name")
-                .isNotNull("email")
-                .ge("age", 20);
-        List<User> users = userMapper.selectList(wrapper);
-        users.forEach(System.err::println);
+        userMapper.deleteById(1);
     }
 
     @Test

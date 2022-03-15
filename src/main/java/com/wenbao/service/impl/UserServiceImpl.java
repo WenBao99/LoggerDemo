@@ -6,7 +6,6 @@ import com.wenbao.mapper.UserMapper;
 import com.wenbao.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -15,7 +14,6 @@ import java.util.List;
  * @data 2022/3/15
  * @Tip
  */
-@Service
 @Component
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
@@ -24,7 +22,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
 
     @Override
-    public List<User> findAll() {return userMapper.selectList(null);}
+    public List<User> findAll() {
+        return userMapper.selectList(null);
+    }
 
     @Override
     public void addOrUpdateUser(User user) {
@@ -33,6 +33,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public void deleteById(Integer id) {
-        deleteById(id);
+        userMapper.deleteById(id);
     }
 }
