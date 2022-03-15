@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Date;
 
@@ -49,8 +50,8 @@ public class User {
     //自动填充处理
     @TableField(fill = FieldFill.INSERT)
     @ApiModelProperty(value = "创建时间")
-    private LocalDate createTime;
+    private Date createTime;
     @TableField(fill = FieldFill.INSERT_UPDATE)
     @ApiModelProperty(value = "修改时间")
-    private LocalDate modifiedTime;
+    private Date modifiedTime;
 }

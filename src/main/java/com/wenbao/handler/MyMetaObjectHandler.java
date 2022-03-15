@@ -6,6 +6,8 @@ import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * @author wenbao
@@ -24,8 +26,8 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         log.info("start insert fill...");
         //setFieldValByName(String fieldName, Object fieldVal, MetaObject metaObject)
         this
-                .setFieldValByName("createTime", LocalDate.now(), metaObject)
-                .setFieldValByName("modifiedTime", LocalDate.now(), metaObject);
+                .setFieldValByName("createTime", new Date(), metaObject)
+                .setFieldValByName("modifiedTime", new Date(), metaObject);
     }
 
     //更新时的填充策略
@@ -33,7 +35,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     public void updateFill(MetaObject metaObject) {
         //打印报告
         log.info("start update fill...");
-        this.setFieldValByName("modifiedTime", LocalDate.now(), metaObject);
+        this.setFieldValByName("modifiedTime", new Date(), metaObject);
 
     }
 
